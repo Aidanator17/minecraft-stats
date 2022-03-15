@@ -1,0 +1,24 @@
+{
+  "name": "minecraft-stats",
+  "version": "1.0.0",
+  "description": "a stats site for minecraft",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aidanator17/minecraft-stats.git"
+  },
+  "keywords": [
+    "minecraft",
+    "stats"
+  ],
+  "author": "Aidan C",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aidanator17/minecraft-stats/issues"
+  },
+  "homepage": "https://github.com/Aidanator17/minecraft-stats#readme"
+}
