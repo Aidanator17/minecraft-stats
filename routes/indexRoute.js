@@ -9,6 +9,7 @@ const convertStats = require("../controllers/fileController").convertStats
 async function getUsername(uuid) {
     const response = await fetch("https://playerdb.co/api/player/minecraft/" + uuid)
     const text = JSON.parse(await response.text())
+    console.log(text)
     return text.data.player.username
 }
 
@@ -18,7 +19,7 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         const { originalname } = file;
-        cb(null, `${uuid()}-${originalname}`)
+        cb(null, `${(Math.floor(Math.random() * 8999999) + 1000000)}-${originalname}`)
     }
 })
 const upload = multer({ storage })
@@ -48,11 +49,11 @@ router.get("/stats/:id", async (req, res) => {
     for (filename in files) {
         if (files[filename].substring(0, 36) == req.params.id) {
             target = files[filename];
-            console.log(target)
             break
         }
     }
-    const username = await getUsername(target.slice(0, -5).slice(-36))
+    console.log(target,"BREAK",target.slice(0,-4).slice(8))
+    const username = await getUsername(target.slice(0,-5).slice(8))
     const stats = await convertStats(target)
     res.render("stats", { username, stats, capitalize })
 })

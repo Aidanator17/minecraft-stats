@@ -20,10 +20,14 @@
         <br>
         <h1 style="text-align: start;">
             <%= username %>
-        </h1><br><br>
+        </h1>
+        <h3 style="text-align: start;">Quick Jump:</h3>
+        <% for (category in stats){ %> <a style="text-align: start;" href="#<%= stats[category].id %>"><%= stats[category].name %></a> <% } %> 
+        
+        <br><br>
         <main class="mx-auto">
             <% for (category in stats){ %>
-                <h4 style="display: inline;">
+                <h4 id="<%= stats[category].id %>" style="display: inline;">
                     <%= stats[category].name %>
                 </h4>
                 <p style="display: inline;">
